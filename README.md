@@ -58,5 +58,57 @@ Je mets en place une ip statique:
 
 ![Configuration IP](assets/3.png)
 
+On n'oublie pas également de faire les mises à jour.
 
+![Mises à jour](assets/4.png)
+
+
+### 1.2 Ajout des rôles nécessaires
+
+Ajoutons les rôles nécessaires pour notre serveur.  
+Pour cela, on se rend dans le gestionnaire de serveur, et on ajoute les rôles suivants:  
+
+- Active Directory Domain Services
+- DNS Server
+- DHCP Server
+
+![Ajout des rôles](assets/5.png)
+
+On laisse les options par défaut pour le reste de la configuration.  
+Une fois l'installation terminée, on redémarre le serveur et on vérifie que tout est bien installé.
+
+![Installation terminée](assets/8.png)
+
+### 1.3 Promotion du serveur en contrôleur de domaine
+
+Pour cela, il suffit de cliquer sur `Promote this server to a domain controller` dans le gestionnaire de serveur, lorsqu'on voit la notification
+
+![Promotion en contrôleur de domaine](assets/6.png)
+
+On met donc en place le déploiement en indiquand le domaine de la forêt. (`techcorp.local`)
+
+![Configuration du domaine](assets/7.png)
+
+### 1.4 Installation d'un membre du domaine
+
+Maintenant, ajoutons un membre au domaine.  
+Pour cela, nous n'avons besoin que d'une machine virtuelle avec Windows 10.
+
+On commence par configurer le réseau de la machine virtuelle, en lui attribuant une IP statique.  (`192.168.1.6` pour notre exemple, **De toute façon cette ip changera plus tard avec le DHCP**)  
+On n'oublie pas de mettre l'ip du serveur DNS en tant que DNS préféré !
+
+Ensuite, on rejoint la machine au domaine en allant dans les paramètres système, et en cliquant sur `Modifier les paramètres`. (Système > Informations système > Domaine ou groupe modifier > membre d’un : on coche domaine et on entre le domaine)
+Une fois fait, un message apparaît indiquant que ça a fonctionné.
+
+![Rejoindre le domaine](assets/9.png)
+
+On redémmare la machine, et on peut voir que la machine nous propose un autre utilisateur pour se connecter, et il est écrit "Connectez vous à : TECHCORP".
+
+![Connecté au domaine](assets/10.png)
+
+Côté serveur, on peut voir que la machine est bien ajoutée dans les ordinateurs.
+
+![Machine ajoutée](assets/11.png)
+
+## 2. Configuration de l'Active Directory
 
