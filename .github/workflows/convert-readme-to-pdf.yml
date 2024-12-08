@@ -27,7 +27,7 @@ jobs:
         with:
           artifacts: README.pdf
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: 1.0.1
+          tag: 1.2.0
           name: README PDF Release
           allowUpdates: true
 
