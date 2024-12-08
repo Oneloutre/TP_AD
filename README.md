@@ -292,8 +292,111 @@ Ensuite, on se connecte avec Sophie Morel, un membre du groupe RH, et on voit qu
 
 ## 6. Configuration des stratégies de groupe
 
+### 6.1 Création des GPO pour les départements
+
+#### 6.1.1 GPO pour le département RH
+
+On se rend dans `Créer un nouvelle GPO > Ajouter la fonctionnalité > Appliquer au membres du groupe RH`  
+On peut ensuite configurer les paramètres de la GPO comme demandé.  
+
+![GPO RH](assets/30.png)
+
+Comme demandé, on interdit donc l'accès au panneau de configuration pour les RH:
+
+![GPO RH](assets/30.5.png)
+
+Il suffit de cliquer sur activé.
+
+Si un RH essaie d'accéder au panneau de configuration, il verra ceci :
+
+![GPO RH](assets/34.png)
+
+#### 6.1.2 GPO pour le département IT
+
+Pour le groupe IT, on va faire deux choses différentes.
+Premièrement, on va déployer firefox sur les machines du groupe IT, et ensuite, on va leur mettre un fond d'écran personnalisé.
+
+On va donc créer une nouvelle GPO, et tout mettre en place pour le déploiement de Firefox : 
+
+![Installation automatique de firefox](assets/39.png)
+
+Ensuite, on va déployer un fond d'écran personnalisé pour les membres du groupe IT.
+
+Le fond d'écran ressemble à ceci :
+
+![Fond d'écran IT](assets/35.png)
+
+On commence par créer un dossier partagé sur le serveur, et on y met l'image du fond d'écran.
+Ensuite, on crée une GPO pour le groupe IT, et on configure le fond d'écran comme indiqué.
+
+![Fond d'écran IT](assets/36.png)
+
+On voit que la configuration a été prise en compte.
+
+![Fond d'écran IT](assets/37.png)
+
+Si on se connecte à un utilisateur auquel on ne s'est pas encore connecté :
+
+![Fond d'écran IT](assets/38.png)
+
+Ça fonctionne !
+
+#### 6.1.3 Redirection des dossiers Documents et Bureaux sur le serveur + Création d'un lecteur réseau pour le dossier commun
+
+Pour finir, on va rediriger les dossiers Documents et Bureaux des utilisateurs du groupe IT et RH sur le serveur, afin que personne ne perde de données si un problème survient sur leur machine.
+
+On commence par créer un dossier partagé sur le serveur (qu'on appellera Redirection), et on y met les dossiers `Documents` et `Bureau`.
+Ensuite, on crée une GPO pour le groupe IT, et on configure la redirection des dossiers comme indiqué.
+Enfin, on fait de même pour le groupe RH.
+
+![Redirection des dossiers](assets/40.png)
+
+On voit que la redirection a bien été prise en compte.
+
+
+Lorsque tout ceci est fait, on peut mettre en place un lecteur réseau pour le dossier commun.
+
+Prenons par exemple le groupe IT, et on fera pareil pour le groupe RH.
+
+On se rend dans `Gestion de stratégie de groupe` > `GPO IT` > `Objets` > `Nouveau` > `Lecteur réseau`
+
+![Lecteur réseau](assets/31.png)
+
+On crée le lecteur réseau, et on va voir dans le gestionnaire de fichier de la machine de Sophie Morel que le lecteur réseau a bien été créé.
+
+![Lecteur réseau](assets/32.png)
+
+En effet, il apparaît donc ça a fonctionné.
+
+### Le 6.2 et le 6.3 ont été réalisé en même temps que la création des GPO, donc les tests sont déjà effectués.
+
+## 7. Vérifications et tests
+
+Attributions des IP via DHCP :
+
+![Attribution des IP](assets/DHCp.png)
+
+Résolutions DNS :
+
+![Résolutions DNS](assets/24.png)
+
+Accès aux dossiers par une personne de la branche concernée, et uniquement par elle :
+
+![Accès aux dossiers](assets/29.png)
+
+Application d'une GPO pour un groupe :
+
+![GPO appliquée](assets/34.png)
+
+Pour un autre : 
+
+![GPO appliquée](assets/38.png)
+
+ou encore les dossiers réseaux : 
+
+![Dossiers réseaux](assets/32.png)
 
 
 
 
-*Ce PDF a été généré automatiquement par github actions. Il s'affichera probablement mieux [en accédant à ce lien](https://github.com/oneloutre/TP_AD)*
+*Ce PDF a été généré par github actions. Le compte-rendu s'affichera probablement mieux [en accédant à ce lien](https://github.com/oneloutre/TP_AD)*
