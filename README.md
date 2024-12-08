@@ -42,5 +42,21 @@
 
 ### 1.1 Installation de Windows Server
 
-Pour commencer, nous allons installer un serveur Windows Server 2019.
+Pour commencer, nous allons installer un serveur Windows Server 2019.  
+On commence par télécharger l'image ISO de Windows Server 2019 sur le site de Microsoft.  
+Une fois installée, on s'assure que le réseau est bien configuré et que le serveur a accès à internet.  
+Pour cela, on crée un Nat Network, défini sur `192.168.1.0/24` comme précisé.  
+
+![Nat Network](assets/1.png)
+
+On vérifie la configuration du réseau, est surtout que **DHCP est désactivé**.
+
+![Configuration réseau](assets/2.png)
+
+Une fois fait, on peut commencer le paramétrage IP de Windows Server lui-même.
+Je mets en place une ip statique:
+
+![Configuration IP](assets/3.png)
+
+
 
