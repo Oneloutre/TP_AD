@@ -112,3 +112,87 @@ Côté serveur, on peut voir que la machine est bien ajoutée dans les ordinateu
 
 ## 2. Configuration de l'Active Directory
 
+### 2.1 Création d'unités d'organisation
+
+Pour commencer, on va créer des unités d'organisation.  
+Pour ce faire, il suffit de se rendre dans `Outils d'administration` > `Utilisateurs et ordinateurs Active Directory` > `techcorp.local`  
+Là, on peut créer des unités d'organisation en faisant un clic droit sur `techcorp.local` > `Nouveau` > `Unité d'organisation`
+
+![Création d'unités d'organisation](assets/12.png)
+
+On indique le nom de l'OU, et on clique sur `OK`.
+
+![Nom de l'OU](assets/12.5.png)
+
+### 2.2 Ajout d'utilisateurs
+
+On peut maintenant ajouter des utilisateurs.  
+Pour cela, on se rend dans `techcorp.local` > `Utilisateurs` > `Nouveau` > `Utilisateur`
+
+![Création d'un utilisateur](assets/13.png)
+
+Là, on indique les informations de l'utilisateur, et on clique sur `Suivant`.  
+On peut ensuite définir un mot de passe pour l'utilisateur, et cliquer sur `Suivant` puis `Terminer`.
+
+![Informations de l'utilisateur](assets/13.5.png)
+
+On peut donc créer plusieurs utilisateurs de cette manière.  
+Passons rapidement en revue les utilisateurs créés.  
+
+On rappelle le tableau donné : 
+
+| Nom Complet  | Nom d'utilisateur |         Poste          |   Groupe AD   |          Email          | 
+|:------------:|:-----------------:|:----------------------:|:-------------:|:-----------------------:|
+| Marie Dupont |      mdupont      |     Responsable RH     |      RH       | mdupont@techcorp.local  |
+| Paul Lambert |     plambert      | Chargé de recrutement  |      RH       | plambert@techcorp.local |
+| Sophie Morel |      smorel       |    Gestionnaire RH     |      RH       | smorel@techcorp.local  |
+| Claire Durand|     cdurand       |     Assistante RH      |      RH       | cdurand@techcorp.local |
+| Jean Martin  |     jmartin       |     Responsable IT     |      IT       | jmarin@techcorp.local   |
+| Alice Petit |     apetit        |  Technicienne réseau   |      IT       | apetit@techcorp.local |
+| Thomas Leroy |     tleroy        |      Développeur       |      IT       | tleroy@techcorp.local |
+| Karim Benaissa |  kbenaissa    | Administrateur système |      IT       | kbenaissa@techcorp.local |
+| Support Technique | supporttech |   Support technique    |      IT       | supporttech@techcorp.local |
+| Admin Techcorp | admintechcorp | Administrateur Domaine | Domain Admins | admin@techcorp.local |
+
+On a donc 3 groupes :
+
+| Nom du groupe |             Description             | Membres |
+|:------------:|:-----------------------------------:|:----------------------:|
+| RH | Accès aux dossiers et ressources RH | Marie Dupont, Paul Lambert, Sophie Morel, Claire Durand |
+| IT | Accès aux dossiers et ressources IT | Jean Martin, Alice Petit, Thomas Leroy, Karim Benaissa, Support Technique |
+| Domain Admins | Administrateurs du domaine | Admin Techcorp |
+
+On peut donc créer les utilisateurs en conséquence.
+
+Voilà les résultats après création des utilisateurs:
+
+![Groupe admins](assets/14.png)
+
+Ensuite, le groupe IT:
+
+![Groupe IT](assets/15.png)
+
+Et enfin, le groupe RH:
+
+![Groupe RH](assets/16.png)
+
+### 2.3 Création de groupes AD
+
+Pour créer des groupes, on se rend dans `techcorp.local` > `Nouveau` > `Groupe`  
+
+![Création de groupes](assets/16.5.png)
+Là on indique le nom du groupe, et on clique sur `OK`.
+
+Ensuite, on ajoute les membres du groupe en faisant un clic droit sur le groupe > `Propriétés` > `Membres` > `Ajouter`
+
+Voici les résultats :
+
+> Groupe Administrateurs du domaine
+![Groupe Admins](assets/17.png)
+
+> Groupe IT
+![Groupe IT](assets/18.png)
+
+> Groupe RH
+![Groupe RH](assets/19.png)
+
