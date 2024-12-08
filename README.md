@@ -1,5 +1,6 @@
 # Livrable Microsoft Active Directory
 
+
 ## Sommaire:
 
 1. [Preparation de l'environnement](#preparation-de-lenvironnement)  
@@ -254,3 +255,45 @@ Il suffit de désactiver l'adresse statique de notre machine client, et d'effect
 
 ![Test de configuration DHCP](assets/26.png)
 
+## 5. Gestion des permissions d'accès
+
+### 5.1 Création des dossiers communs
+
+Dans l'explorateur de fichier, on crée sous `C:\` un dossier `partages.`  
+Dans ce dossier, on crée un dossier `RH` et un dossier `IT`.
+
+![Création des dossiers](assets/26.5.png)
+
+### 5.2 Définition des permissions NTFS
+
+Immédiatement, on change les permissions du dossier `IT` pour que seuls les membres du groupe IT aient accès.
+
+![Permissions IT](assets/26.6.png)
+
+Et on fait de même pour le dossier `RH` avec le groupe RH.
+
+![Permissions RH](assets/26.7.png)
+
+### 5.3 Test d'accès
+
+Si on fait quelques tests d'accès, on voit que ça fonctionne plutôt bien.  
+Premièrement, on se connecte Thomas Leroy, un membre du groupe IT, et on voit qu'il a accès au dossier `IT` mais pas au dossier `RH`.  
+
+![Test d'accès](assets/27.png)
+
+Pour Thomas Leroy, voilà une capture d'écran un peu plus précise : 
+
+![Test d'accès](assets/28.png)
+
+Ensuite, on se connecte avec Sophie Morel, un membre du groupe RH, et on voit qu'elle a accès au dossier `RH` mais pas au dossier `IT`.
+
+![Test d'accès](assets/29.png)
+
+
+## 6. Configuration des stratégies de groupe
+
+
+
+
+
+*Ce PDF a été généré automatiquement par github actions. Il s'affichera probablement mieux [en accédant à ce lien](https://github.com/oneloutre/TP_AD)*
