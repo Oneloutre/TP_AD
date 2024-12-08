@@ -188,11 +188,48 @@ Ensuite, on ajoute les membres du groupe en faisant un clic droit sur le groupe 
 Voici les résultats :
 
 > Groupe Administrateurs du domaine
+
 ![Groupe Admins](assets/17.png)
 
 > Groupe IT
+
 ![Groupe IT](assets/18.png)
 
 > Groupe RH
+
 ![Groupe RH](assets/19.png)
+
+
+## 3. Configuration du service DNS
+
+Configurons à présent le service DNS.  
+Dans le gestionnaire de serveur, on se rend dans `Outils` > `DNS`
+
+![Redirecteur DNS](assets/20.png)
+
+### 3.1 Configurer le redirecteur DNS
+
+Une fois dans l'outil DNS, on fait un clic droit sur le serveur, et on clique sur `Rediecteurs conditionnels` > `Nouveau redirecteur conditionnel`  
+On ajoute les ip voulues (`1.1.1.1`, cloudflare et `8.8.8.8`, google) et on clique sur `OK`.  
+
+![Ajout de redirecteurs](assets/21.png)
+
+### 3.2 Ajout d'enregistrement DNS
+
+On peut ajouter des enregistrements DNS en faisant un clic droit sur `techcorp.local` > `Nouvel Hôte (A ou AAAA)` > `Nom du domaine parent` (ici www) et on rensigne l'ip de la machine.
+
+Après, On peut ajouter une zone de recherche inversée en faisant un clic droit sur `Zones de recherche inversée` > `Nouvelle zone` > `Zone de recherche inversée IPv4` > `Nouvelle zone` > `Zone principale` > `ipv4` > `ip du router (192.168.1.1)`
+
+![Ajout d'enregistrements DNS](assets/22.png)
+
+
+### 3.3 Test de résolution DNS
+
+Pour tester la résolution DNS, on peut faire un `nslookup`. On vérifie que le serveur DNS est bien configuré en faisant un `nslookup` sur le nom du serveur.  
+
+![Test de résolution DNS](assets/23.png)
+
+On voit que la résolution fonctionne bien.
+
+## 4. Configuration du service DHCP
 
