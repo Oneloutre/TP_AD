@@ -229,7 +229,28 @@ Pour tester la résolution DNS, on peut faire un `nslookup`. On vérifie que le 
 
 ![Test de résolution DNS](assets/23.png)
 
-On voit que la résolution fonctionne bien.
+On voit que la résolution fonctionne bien.  
+On vérifie également qu'on a toujours accès à internet.
+
+![Test de résolution DNS](assets/24.png)
 
 ## 4. Configuration du service DHCP
+
+### 4.1 Création d'une plage d'adresses
+
+Pour commencer, on se rend dans le gestionnaire de serveur, et on clique sur `DHCP`  
+On ajoute donc une nouvelle plage d'adresses en faisant un clic droit sur `IPv4` > `Nouvelle étendue`  
+On la configure comme indiqué dans le sujet : `192.168.1.100` à `192.168.1.254`
+
+![Création d'une plage d'adresses](assets/25.png)
+
+### 4.2 Ajout d'options DHCP
+
+On ajoute évidemment les options DHCP demandées (DNS, passerelle, etc)  
+
+### 4.3 Test de configuration DHCP
+
+Il suffit de désactiver l'adresse statique de notre machine client, et d'effecture un `ipconfig /renew` pour vérifier que le DHCP fonctionne bien.
+
+![Test de configuration DHCP](assets/26.png)
 
